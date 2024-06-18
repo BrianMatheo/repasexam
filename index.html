@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <Style>
+
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            background-color: gray;
+        }
+
+        .seccion{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+        .contenedor{
+            width: 40%;
+            height: 500px;
+            box-shadow: 0 0 15px  black;
+            border: 1px solid black;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .texto{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            justify-content: center;
+        }
+    </Style>
+</head>
+<body>
+    <section class="seccion">
+        <div class="contenedor">
+            <div class="titulo">
+                <h1>Resolvedor</h1>
+            </div>
+            <div class="texto">
+                <input type="number" id="input1">
+                <input type="number" id="input2">
+                <input type="number" id="input3">
+                <input type="text" id="text1" placeholder="Desde Aquí Inicia el Texto">
+                <input type="text" id="text2">
+                <input type="text" id="text3">
+                <input type="text" id="text4">
+                <button onclick="send()" >Enviar</button>
+            </div>
+            <div id="results"></div>
+            <div id="results2"></div>
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function send(){
+            var input1 = document.getElementById("input1").value.trim();
+            var input2 = document.getElementById("input2").value.trim();
+            var input3 = document.getElementById("input3").value.trim();
+            var text1 = document.getElementById("text1").value.trim();
+            var text2 = document.getElementById("text2").value.trim();
+            var text3 = document.getElementById("text3").value.trim();
+            var text4 = document.getElementById("text4").value.trim();
+            
+            let concat = input1 + input2 + input3;
+            let concatext = text1 + text2 + text3 + text4;
+
+            let cadena1 = "";
+            let cadena2 = "";
+
+            // EJERCICIO DE PAR E IMPAR
+
+            // for(let i = input1; i<=input2; i++){
+            //     if( i%2 == 0){
+            //         cadena1 += i + " es par ";
+            //     }else{
+            //         cadena2 += i + " es impar";
+            //     }
+            // }
+            // document.getElementById("results").innerText = cadena1;
+            // document.getElementById("results2").innerText = cadena2; 
+
+            // EJERCICIO DE POSICION DE UNA LETRA
+            
+            // var contador = 0;
+            // for(let i = 0; i<concatext.length; i++){
+            //     if(concatext.charAt(i) == "r"){
+            //         contador++;
+            //         cadena2 += concatext.charAt(i) + " está en la ubicación " + i + "\n";
+            //     }
+            // }
+            // document.getElementById("results").innerText = cadena2 + " en total hay " + contador;
+
+            //EJERCICIO DE TABLA DE MULTIPLICAR
+
+            // for(let i = 0; i<concatext.length; i++){
+            //     cadena2 += "12 * " + i + " = " + (12*i) + "\n";
+            // }
+            // document.getElementById("results").innerText = cadena2;
+
+            //EJERCICIO NOMBRE VERTICAL Y SU POSICIÓN
+
+            for(let i=0; i<concatext.length; i++){
+                cadena2 += concatext.charAt(i) + " " + (i+1) + "\n";
+                Swal.fire("hay " + concatext.length + " letras");
+            }
+            document.getElementById("results").innerText = cadena2;
+        }
+        </script>
+</body>
+</html>
